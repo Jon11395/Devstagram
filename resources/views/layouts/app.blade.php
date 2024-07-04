@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        @stack('styles')
         <title>Devstagram - @yield('titulo')</title>
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />        
 
     </head>
         <body class="bg-gray-100">
@@ -24,7 +25,7 @@
                           </svg>
                           Crear</a>
                         
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="#"> Hola: <span class="font-normal"> {{ auth()->user()->username }} </span></a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href=" {{ route('posts.index',  auth()->user()->username )}}"> Hola: <span class="font-normal"> {{ auth()->user()->username }} </span></a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="font-bold uppercase text-gray-600 text-sm"> Cerrar Sesión</button>
