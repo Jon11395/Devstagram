@@ -21,7 +21,7 @@ class ImagenController extends Controller
         //guardar la imagen al servidor
         $imagenServidor = $manager->read($imagen);
         //agregamos efecto a la imagen con intervention
-        $imagenServidor->scale(1000, 1000);
+        $imagenServidor->resizeCanvas(1000, 1000);
         // la unidad de mide en PX 1= 1pixiel
  
         //agregamos la imagen a la  carpeta en public donde se guardaran las imagenes
